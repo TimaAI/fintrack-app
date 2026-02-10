@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль - FinTrack</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                    <rect width="32" height="32" rx="8" fill="#4F46E5"/>
+                    <path d="M16 8L24 16L16 24L8 16L16 8Z" fill="white"/>
+                </svg>
+                <h1>FinTrack</h1>
+            </div>
+            <div style="display: flex; gap: 16px; align-items: center;">
+                <a href="{% url 'index' %}" class="btn btn-small">← Назад</a>
+                <a href="{% url 'logout' %}" class="btn btn-small">Выйти</a>
+            </div>
+        </header>
+
+        <div class="form-section">
+            <h2>👤 Профиль пользователя</h2>
+            
+            <div style="background: var(--bg); padding: 24px; border-radius: 12px; margin-bottom: 24px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px;">
+                    <div>
+                        <div style="font-size: 14px; color: var(--text-light); margin-bottom: 4px;">Имя пользователя</div>
+                        <div style="font-size: 20px; font-weight: 600;">{{ user.username }}</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 14px; color: var(--text-light); margin-bottom: 4px;">Email</div>
+                        <div style="font-size: 20px; font-weight: 600;">{{ user.email }}</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 14px; color: var(--text-light); margin-bottom: 4px;">Дата регистрации</div>
+                        <div style="font-size: 20px; font-weight: 600;">{{ user.date_joined|date:"d.m.Y" }}</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="margin-bottom: 16px;">📊 Статистика</h3>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div style="font-size: 14px; color: var(--text-light); margin-bottom: 8px;">Всего транзакций</div>
+                    <div style="font-size: 32px; font-weight: 700; color: var(--primary);">{{ total_transactions }}</div>
+                </div>
+                <div class="stat-card income">
+                    <div class="stat-icon">↑</div>
+                    <div class="stat-info">
+                        <div class="stat-label">Доходы</div>
+                        <div class="stat-value">{{ total_income }} ₸</div>
+                    </div>
+                </div>
+                <div class="stat-card expense">
+                    <div class="stat-icon">↓</div>
+                    <div class="stat-info">
+                        <div class="stat-label">Расходы</div>
+                        <div class="stat-value">{{ total_expense }} ₸</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
