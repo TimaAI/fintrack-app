@@ -1,5 +1,5 @@
 # 💰 FinTrack - Система управления персональными финансами
-
+![Ссылка на сайт с урезанными возможностями](https://fintrackfun.site/)
 ![FinTrack Logo](https://img.shields.io/badge/FinTrack-v1.0-blue)
 ![Python](https://img.shields.io/badge/Python-3.12-green)
 ![Django](https://img.shields.io/badge/Django-4.2-darkgreen)
